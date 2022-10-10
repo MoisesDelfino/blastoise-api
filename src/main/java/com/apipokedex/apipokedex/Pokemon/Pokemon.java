@@ -1,6 +1,7 @@
 package com.apipokedex.apipokedex.Pokemon;
 
 
+import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.utils.Genero;
 import lombok.*;
 
@@ -40,7 +41,8 @@ public class Pokemon {
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
-    @ManyToOne(fetch = FetchType.LAZY, mappedBy = "treinador", orphanRemoval = true)
+    @ManyToOne(fetch = FetchType.LAZY) //, mappedBy = "treinador", orphanRemoval = true
+    @JoinColumn(name = "id_treinador")
     Treinador treinador = new Treinador();
 
 
