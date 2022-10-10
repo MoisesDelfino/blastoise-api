@@ -1,4 +1,4 @@
-package com.apipokedex.apipokedex.util;
+package com.apipokedex.apipokedex.utils;
 
 import lombok.Builder;
 import lombok.Data;
