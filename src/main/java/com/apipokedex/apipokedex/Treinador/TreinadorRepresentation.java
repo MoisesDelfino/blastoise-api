@@ -1,5 +1,7 @@
 package com.apipokedex.apipokedex.Treinador;
 
+import com.apipokedex.apipokedex.Pokemon.PokemonRepresentation;
+import com.apipokedex.apipokedex.utils.Genero;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,6 +38,7 @@ public interface TreinadorRepresentation {
         private String nome;
         private String classificacao;
         private Date nascimento;
+        private Genero genero;
         private List<PokemonRepresentation.Padrao> pokemons;
 
         public static Detalhes from(Treinador treinador) {
