@@ -48,6 +48,12 @@ public interface TreinadorRepresentation {
                             .nome(treinador.getNome())
                             .genero(treinador.getGenero())
                             .nascimento(treinador.getNascimento())
+                            .build() :
+                    Detalhes.builder()
+                            .id(treinador.getId())
+                            .nome(treinador.getNome())
+                            .genero(treinador.getGenero())
+                            .nascimento(treinador.getNascimento())
                             .pokemons(PokemonRepresentation.Padrao.from(treinador.getPokemonList()))
                             .build();
         }
