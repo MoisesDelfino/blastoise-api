@@ -20,7 +20,7 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pokemon")
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
