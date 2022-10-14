@@ -20,7 +20,7 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pokemon")
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
@@ -41,9 +41,6 @@ public class Pokemon {
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
-    @ManyToOne(fetch = FetchType.LAZY) //, mappedBy = "treinador", orphanRemoval = true
-    @JoinColumn(name = "id_treinador")
-    Treinador treinador = new Treinador();
-
-
+    @ManyToOne
+    private Treinador treinador;
 }
