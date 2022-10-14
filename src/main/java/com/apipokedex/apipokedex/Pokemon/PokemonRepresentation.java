@@ -26,7 +26,6 @@ public interface PokemonRepresentation {
 
         @NotNull(message = "O campo nome não pode ser nulo")
         @NotEmpty
-        private Long id;
         private String nome;
         private Long saude;
         private Long ataque;

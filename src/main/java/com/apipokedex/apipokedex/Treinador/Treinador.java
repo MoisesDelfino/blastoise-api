@@ -20,6 +20,7 @@ import java.util.List;
 public class Treinador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_treinador")
     private Long id;
 
     @Column(name = "nome")
