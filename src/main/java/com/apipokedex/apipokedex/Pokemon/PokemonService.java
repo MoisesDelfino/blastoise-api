@@ -2,11 +2,12 @@ package com.apipokedex.apipokedex.Pokemon;
 
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.Treinador.TreinadorService;
+import com.apipokedex.apipokedex.exceptions.NotfoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+import java.util.Optional;
 
 
 @Service
@@ -34,29 +35,44 @@ public class PokemonService {
                 .build());
     }
 
-//    public Pokemon criarPokemon(PokemonRepresentation.CriarOuAtualizar criar) {
-//
-//        if(Objects.isNull(criar.getNome())) {
-//            log.error(criar.toString());
-//            //throw new ProfessorServiceException("O sobrenome não pode ser nulo");
-//        }
-//
-//        if(criar.getNome().isEmpty()) {
-//            log.error(criar.toString());
-//            //throw new ProfessorServiceException("O sobrenome não pode ser vazio");
-//        }
-//        return this.pokemonRepository.save(Pokemon.builder()
-//                .nome(criar.getNome())
-//                .saude(criar.getSaude())
-//                .ataque(criar.getAtaque())
-//                .defesa(criar.getDefesa())
-//                .velocidade(criar.getVelocidade())
-//                .genero(criar.getGenero())
-//                .treinador(criar.getTreinador())
-//                .build());
-//
-//    }
 
+    public Pokemon buscarUmPokemon(Long idPokemon) {
 
+        return this.getPokemon(idPokemon);
+
+    }
+    private Pokemon getPokemon(Long idPokemon) {
+        Optional<Pokemon> pokemonAtual =
+                this.pokemonRepository.findById(idPokemon);
+
+        if (pokemonAtual.isPresent()) {
+            return pokemonAtual.get();
+        } else {
+            throw new NotfoundException("Pokemon não encontrado");
+        }
+    }
+
+    public Pokemon atualizar(
+            TreinadorService treinadorService,
+            Long idTreinador,
+            Long idPokemon,
+            PokemonRepresentation.CriarOuAtualizar atualizar) {
+
+        Treinador treinador = treinadorService.buscarUmTreinador(idTreinador);
+
+        Pokemon pokemonParaAtualizar = Pokemon.builder()
+                .id(idPokemon)
+                .treinador(treinador)
+                .nome(atualizar.getNome())
+                .saude(atualizar.getSaude())
+                .ataque(atualizar.getAtaque())
+                .defesa(atualizar.getDefesa())
+                .velocidade(atualizar.getVelocidade())
+                .genero(atualizar.getGenero())
+                .build();
+
+        return this.pokemonRepository.save(pokemonParaAtualizar);
+
+    }
 
 }
