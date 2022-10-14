@@ -2,6 +2,7 @@ package com.apipokedex.apipokedex.Pokemon;
 
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.utils.Genero;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,15 +24,14 @@ public interface PokemonRepresentation {
     @NoArgsConstructor
     class CriarOuAtualizar {
 
-        @NotNull(message = "O campo nome não pode ser nulo")
-        @NotEmpty
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
         private String nome;
         private Long saude;
         private Long ataque;
         private Long defesa;
         private Long velocidade;
         private Genero genero;
-        private Treinador treinador;
 
 
     }
@@ -48,7 +47,7 @@ public interface PokemonRepresentation {
         private Long defesa;
         private Long velocidade;
         private Genero genero;
-        private Treinador treinador;
+//        private Treinador treinador;
 
 
         public static Detalhes from(Pokemon pokemon) {
@@ -60,7 +59,7 @@ public interface PokemonRepresentation {
                     .defesa(pokemon.getDefesa())
                     .velocidade(pokemon.getVelocidade())
                     .genero(pokemon.getGenero())
-                    .treinador(pokemon.getTreinador())
+//                    .treinador(pokemon.getTreinador())
                     .build();
         }
     }
@@ -76,7 +75,6 @@ public interface PokemonRepresentation {
         private Long defesa;
         private Long velocidade;
         private Genero genero;
-        private Treinador treinador;
 
         public static Padrao from(Pokemon pokemon) {
             return Padrao.builder()
@@ -87,7 +85,6 @@ public interface PokemonRepresentation {
                     .defesa(pokemon.getDefesa())
                     .velocidade(pokemon.getVelocidade())
                     .genero(pokemon.getGenero())
-                    .treinador(pokemon.getTreinador())
                     .build();
         }
 

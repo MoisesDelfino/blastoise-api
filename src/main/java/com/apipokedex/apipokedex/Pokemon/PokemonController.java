@@ -1,5 +1,7 @@
 package com.apipokedex.apipokedex.Pokemon;
 
+import com.apipokedex.apipokedex.Treinador.TreinadorRepresentation;
+import com.apipokedex.apipokedex.Treinador.TreinadorService;
 import com.apipokedex.apipokedex.utils.Paginacao;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -16,24 +18,45 @@ import java.util.function.Predicate;
 
 
 @RestController
-@RequestMapping("api/Pokemon")
+@RequestMapping("api/treinador/{idTreinador}/pokemon")
 @CrossOrigin("*")
 @AllArgsConstructor
 public class PokemonController {
 
-    private PokemonService PokemonService;
+    private PokemonService pokemonService;
+
+    private TreinadorService treinadorService;
 
     @PostMapping("/")
     public ResponseEntity<PokemonRepresentation.Detalhes> createPokemon(
-            @RequestBody @Valid PokemonRepresentation.CriarOuAtualizar criar){
+            @PathVariable Long idTreinador,
+            @RequestBody PokemonRepresentation.CriarOuAtualizar criar) {
 
-        Pokemon Pokemon = this.PokemonService.criarPokemon(criar);
+
+        Pokemon pokemon = this.pokemonService.criarPokemon(treinadorService, idTreinador, criar);
 
         PokemonRepresentation.Detalhes detalhes =
-                PokemonRepresentation.Detalhes.from(Pokemon);
+                PokemonRepresentation.Detalhes.from(pokemon);
 
         return ResponseEntity.ok(detalhes);
+
+        //return this.pokemonService.criarPokemon(treinadorService, idTreinador, criar);
+
     }
+
+
+
+//    @PostMapping("/")
+//    public ResponseEntity<PokemonRepresentation.Detalhes> createPokemon(
+//            @RequestBody @Valid PokemonRepresentation.CriarOuAtualizar criar){
+//
+//        Pokemon Pokemon = this.PokemonService.criarPokemon(criar);
+//
+//        PokemonRepresentation.Detalhes detalhes =
+//                PokemonRepresentation.Detalhes.from(Pokemon);
+//
+//        return ResponseEntity.ok(detalhes);
+//    }
 
 //    @GetMapping("/")
 //    public ResponseEntity<Paginacao> buscarPokemones(
