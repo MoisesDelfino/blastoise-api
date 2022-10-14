@@ -42,7 +42,7 @@ public interface TreinadorRepresentation {
         private List<PokemonRepresentation.Padrao> pokemons;
 
         public static Detalhes from(Treinador treinador) {
-            return Objects.isNull(treinador.getPokemonList()) || treinador.getPokemonList().isEmpty()?
+            return Objects.isNull(treinador.getPokemonList()) || treinador.getPokemonList().isEmpty() ?
                     Detalhes.builder()
                             .id(treinador.getId())
                             .nome(treinador.getNome())
