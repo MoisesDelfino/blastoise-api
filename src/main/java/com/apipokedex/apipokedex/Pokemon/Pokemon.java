@@ -41,9 +41,6 @@ public class Pokemon {
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
-    @ManyToOne(fetch = FetchType.LAZY) //, mappedBy = "treinador", orphanRemoval = true
-    @JoinColumn(name = "id_treinador")
-    Treinador treinador = new Treinador();
-
-
+    @ManyToOne
+    private Treinador treinador;
 }
