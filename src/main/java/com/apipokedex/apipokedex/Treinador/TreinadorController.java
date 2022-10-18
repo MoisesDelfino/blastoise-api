@@ -88,6 +88,5 @@ public class TreinadorController {
 
         return ResponseEntity
                 .ok(detalhes);
-
     }
 }

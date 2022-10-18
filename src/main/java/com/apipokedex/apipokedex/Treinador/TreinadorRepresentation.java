@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.authenticator.SavedRequest;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -70,16 +69,12 @@ public interface TreinadorRepresentation {
             return treinador.getPokemonList().isEmpty() ?
                     Lista.builder()
                             .id(treinador.getId())
-                            .nome(
-                                    String.format("%s %s", treinador.getNome())
-                            )
+                            .nome(treinador.getNome())
                             .build() :
 
                     Lista.builder()
                             .id(treinador.getId())
-                            .nome(
-                                    String.format("%s %s", treinador.getNome())
-                            )
+                            .nome(treinador.getNome())
                             .pokemon(PokemonRepresentation.Padrao
                                     .from(treinador.getPokemonList().get(0)))
                             .build();

@@ -4,7 +4,6 @@ package com.apipokedex.apipokedex.Pokemon;
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.utils.Genero;
 import lombok.*;
-
 import javax.persistence.*;
 import javax.persistence.ManyToOne;
 
