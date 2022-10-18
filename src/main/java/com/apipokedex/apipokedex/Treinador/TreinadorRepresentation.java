@@ -1,6 +1,7 @@
 package com.apipokedex.apipokedex.Treinador;
 
 import com.apipokedex.apipokedex.Pokemon.PokemonRepresentation;
+import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Genero;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public interface TreinadorRepresentation {
         @NotNull(message = "O campo nome não pode ser nulo")
         @NotEmpty
         private String nome;
-        private String classificacao;
+        private Classificacao classificacao;
         private Genero genero;
         private Date nascimento;
     }
@@ -35,7 +36,7 @@ public interface TreinadorRepresentation {
     class Detalhes{
         private Long id;
         private String nome;
-        private String classificacao;
+        private Classificacao classificacao;
         private Date nascimento;
         private Genero genero;
         private List<PokemonRepresentation.Padrao> pokemons;
@@ -45,6 +46,7 @@ public interface TreinadorRepresentation {
                     Detalhes.builder()
                             .id(treinador.getId())
                             .nome(treinador.getNome())
+                            .classificacao(treinador.getClassificacao())
                             .genero(treinador.getGenero())
                             .nascimento(treinador.getNascimento())
                             .build() :
@@ -52,6 +54,7 @@ public interface TreinadorRepresentation {
                             .id(treinador.getId())
                             .nome(treinador.getNome())
                             .genero(treinador.getGenero())
+                            .classificacao(treinador.getClassificacao())
                             .nascimento(treinador.getNascimento())
                             .pokemons(PokemonRepresentation.Padrao.from(treinador.getPokemonList()))
                             .build();
