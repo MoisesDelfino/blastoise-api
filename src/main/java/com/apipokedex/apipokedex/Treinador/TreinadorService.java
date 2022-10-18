@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.apipokedex.apipokedex.exceptions.NotfoundException;
 import com.apipokedex.apipokedex.exceptions.TreinadorServiceException;
+
+import javax.swing.*;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -52,14 +54,13 @@ public class TreinadorService {
             TreinadorRepresentation.CriarOuAtualizar atualizar) {
 
         this.getTreinador(idTreinador);
-
         Treinador treinadorParaAtualizar = Treinador.builder()
-                .id(idTreinador)
-                .nome(atualizar.getNome())
-                .classificacao(atualizar.getClassificacao())
-                .genero(Genero.valueOf(atualizar.getGenero().name()))
-                .nascimento(atualizar.getNascimento())
-                .build();
+                    .id(idTreinador)
+                    .nome(atualizar.getNome())
+                    .classificacao(atualizar.getClassificacao())
+                    .genero(Genero.valueOf(atualizar.getGenero().name()))
+                    .nascimento(atualizar.getNascimento())
+                    .build();
 
         return this.treinadorRepository.save(treinadorParaAtualizar);
 

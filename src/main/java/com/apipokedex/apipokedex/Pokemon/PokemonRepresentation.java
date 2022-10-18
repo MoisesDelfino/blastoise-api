@@ -47,7 +47,7 @@ public interface PokemonRepresentation {
         private Long defesa;
         private Long velocidade;
         private Genero genero;
-//        private Treinador treinador;
+        private Treinador treinador;
 
 
         public static Detalhes from(Pokemon pokemon) {
@@ -59,7 +59,7 @@ public interface PokemonRepresentation {
                     .defesa(pokemon.getDefesa())
                     .velocidade(pokemon.getVelocidade())
                     .genero(pokemon.getGenero())
-//                    .treinador(pokemon.getTreinador())
+                    .treinador(pokemon.getTreinador())
                     .build();
         }
     }
