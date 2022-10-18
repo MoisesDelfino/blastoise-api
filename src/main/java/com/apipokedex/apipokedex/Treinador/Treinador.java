@@ -1,6 +1,7 @@
 package com.apipokedex.apipokedex.Treinador;
 
 import com.apipokedex.apipokedex.Pokemon.Pokemon;
+import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Genero;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +31,7 @@ public class Treinador {
     private String nome;
 
     @Column(name = "classificacao")
-    private String classificacao;
+    private Classificacao classificacao;
 
     @Column(name = "genero")
     @Enumerated(EnumType.STRING)
