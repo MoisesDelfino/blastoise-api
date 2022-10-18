@@ -10,6 +10,7 @@ com/apipokedex/apipokedex/Treinador/TreinadorRepresentation$Lista$ListaBuilder.c
 com/apipokedex/apipokedex/Treinador/TreinadorRepository.class
 com/apipokedex/apipokedex/Pokemon/QPokemon.class
 com/apipokedex/apipokedex/Treinador/Treinador.class
+com/apipokedex/apipokedex/utils/Classificacao.class
 com/apipokedex/apipokedex/Treinador/TreinadorRepresentation$Lista.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepository.class

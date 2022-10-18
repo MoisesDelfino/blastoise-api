@@ -13,6 +13,7 @@
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/target/generated-sources/java/com/apipokedex/apipokedex/Pokemon/QPokemon.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/Pokemon/PokemonRepresentation.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/Treinador/TreinadorService.java
+/home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/utils/Classificacao.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/Treinador/TreinadorController.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/exceptions/RespostaErro.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/exceptions/TreinadorServiceException.java

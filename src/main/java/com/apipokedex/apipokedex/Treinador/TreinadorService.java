@@ -1,5 +1,6 @@
 package com.apipokedex.apipokedex.Treinador;
 
+import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Genero;
 import com.querydsl.core.types.Predicate;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.apipokedex.apipokedex.exceptions.NotfoundException;
 import com.apipokedex.apipokedex.exceptions.TreinadorServiceException;
+
+import javax.swing.*;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -33,7 +36,7 @@ public class TreinadorService {
 
         return this.treinadorRepository.save(Treinador.builder()
                 .nome(criar.getNome())
-                .classificacao(criar.getClassificacao())
+                .classificacao(Classificacao.valueOf(criar.getClassificacao().name()))
                 .genero(Genero.valueOf(criar.getGenero().name()))
                 .nascimento(criar.getNascimento())
                 .build());
@@ -52,14 +55,13 @@ public class TreinadorService {
             TreinadorRepresentation.CriarOuAtualizar atualizar) {
 
         this.getTreinador(idTreinador);
-
         Treinador treinadorParaAtualizar = Treinador.builder()
-                .id(idTreinador)
-                .nome(atualizar.getNome())
-                .classificacao(atualizar.getClassificacao())
-                .genero(Genero.valueOf(atualizar.getGenero().name()))
-                .nascimento(atualizar.getNascimento())
-                .build();
+                    .id(idTreinador)
+                    .nome(atualizar.getNome())
+                    .classificacao(Classificacao.valueOf(atualizar.getClassificacao().name()))
+                    .genero(Genero.valueOf(atualizar.getGenero().name()))
+                    .nascimento(atualizar.getNascimento())
+                    .build();
 
         return this.treinadorRepository.save(treinadorParaAtualizar);
 

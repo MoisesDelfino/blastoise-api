@@ -3,9 +3,7 @@ package com.apipokedex.apipokedex.Pokemon;
 
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.utils.Genero;
-import com.apipokedex.apipokedex.utils.Status;
 import lombok.*;
-
 import javax.persistence.*;
 import javax.persistence.ManyToOne;
 
@@ -41,10 +39,6 @@ public class Pokemon {
     @Column(name = "genero")
     @Enumerated(EnumType.STRING)
     private Genero genero;
-
-    @Column(name = "status")
-    @Enumerated(EnumType.STRING)
-    private Status status;
 
     @ManyToOne
     private Treinador treinador;
