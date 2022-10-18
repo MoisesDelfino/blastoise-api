@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 @AllArgsConstructor
 public class PokemonController {
-
     private PokemonService pokemonService;
 
     private TreinadorService treinadorService;
