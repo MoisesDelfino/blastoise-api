@@ -14,9 +14,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @Slf4j
 public class PokemonService {
-
     private PokemonRepository pokemonRepository;
-
 
     public Pokemon criarPokemon(TreinadorService treinadorService,
                              Long idTreinador,
@@ -31,10 +29,9 @@ public class PokemonService {
                 .ataque(criar.getAtaque())
                 .defesa(criar.getDefesa())
                 .velocidade(criar.getVelocidade())
-                .genero(criar.getGenero()) // Here can contain a error
+                .genero(criar.getGenero())
                 .build());
     }
-
 
     public Pokemon buscarUmPokemon(Long idPokemon) {
 
