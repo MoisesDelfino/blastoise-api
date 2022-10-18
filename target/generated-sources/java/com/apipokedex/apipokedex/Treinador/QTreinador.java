@@ -6,7 +6,6 @@ import com.querydsl.core.annotations.Generated;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
-
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
 
@@ -21,7 +20,7 @@ public class QTreinador extends EntityPathBase<Treinador> {
 
     public static final QTreinador treinador = new QTreinador("treinador");
 
-    public final StringPath classificacao = createString("classificacao");
+    public final EnumPath<com.apipokedex.apipokedex.utils.Classificacao> classificacao = createEnum("classificacao", com.apipokedex.apipokedex.utils.Classificacao.class);
 
     public final EnumPath<com.apipokedex.apipokedex.utils.Genero> genero = createEnum("genero", com.apipokedex.apipokedex.utils.Genero.class);
 
