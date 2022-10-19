@@ -43,6 +43,6 @@ public class Treinador {
     @Column(name = "nascimento")
     private Date nascimento;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "treinador", orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "treinador", orphanRemoval = false)
     List<Pokemon> pokemonList = new ArrayList<>();
 }
