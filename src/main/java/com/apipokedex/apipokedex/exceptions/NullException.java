@@ -4,18 +4,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class TreinadorServiceException extends RuntimeException {
-    public TreinadorServiceException() {
+public class NullException extends RuntimeException {
+    public NullException() {
         super();
     }
 
-    public TreinadorServiceException(final String message) {
+    public NullException(final String message) {
         super(message);
     }
-    public TreinadorServiceException(final String message, final Throwable cause) {
+    public NullException(final String message, final Throwable cause) {
         super(message, cause);
     }
-    public TreinadorServiceException(final Throwable cause) {
+    public NullException(final Throwable cause) {
         super(cause);
     }
 }

@@ -1,8 +1,6 @@
 package com.apipokedex.apipokedex.Treinador;
 
-import com.apipokedex.apipokedex.Pokemon.Pokemon;
 import com.apipokedex.apipokedex.utils.Classificacao;
-import com.apipokedex.apipokedex.utils.Genero;
 import com.querydsl.core.types.Predicate;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,11 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.apipokedex.apipokedex.exceptions.NotfoundException;
-import com.apipokedex.apipokedex.exceptions.TreinadorServiceException;
+import com.apipokedex.apipokedex.exceptions.NullException;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -29,12 +24,12 @@ public class TreinadorService {
 
         if(Objects.isNull(criar.getNome())){
             log.error(criar.toString());
-            throw new TreinadorServiceException("O nome não pode ser nulo");
+            throw new NullException("O nome não pode ser nulo");
         }
 
         if(criar.getNome().isEmpty()){
             log.error(criar.toString());
-            throw new TreinadorServiceException("O nome não pode ser vazio");
+            throw new NullException("O nome não pode ser vazio");
         }
 
         return this.treinadorRepository.save(Treinador.builder()
@@ -68,17 +63,6 @@ public class TreinadorService {
                     .status(atualizar.getStatus())
                     .nascimento(atualizar.getNascimento())
                     .build();
-
-
-//        Pokemon pokemon = new Pokemon();
-//
-//        List pokemonList = new ArrayList();
-//
-//        pokemonList.add(pokemon);
-//
-//        treinadorParaAtualizar.getPokemonList().clear();
-//
-//        treinadorParaAtualizar.getPokemonList().addAll(pokemonList);
 
 
 
