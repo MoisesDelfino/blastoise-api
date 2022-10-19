@@ -37,7 +37,8 @@ public class TreinadorService {
         return this.treinadorRepository.save(Treinador.builder()
                 .nome(criar.getNome())
                 .classificacao(Classificacao.valueOf(criar.getClassificacao().name()))
-                .genero(Genero.valueOf(criar.getGenero().name()))
+                .genero(criar.getGenero())
+                .status(criar.getStatus())
                 .nascimento(criar.getNascimento())
                 .build());
     }
@@ -59,7 +60,8 @@ public class TreinadorService {
                     .id(idTreinador)
                     .nome(atualizar.getNome())
                     .classificacao(Classificacao.valueOf(atualizar.getClassificacao().name()))
-                    .genero(Genero.valueOf(atualizar.getGenero().name()))
+                    .genero(atualizar.getGenero())
+                    .status(atualizar.getStatus())
                     .nascimento(atualizar.getNascimento())
                     .build();
 
@@ -73,7 +75,6 @@ public class TreinadorService {
         return this.getTreinador(idTreinador);
 
     }
-
 
     private Treinador getTreinador(Long idTreinador) {
         Optional<Treinador> treinadorAtual =

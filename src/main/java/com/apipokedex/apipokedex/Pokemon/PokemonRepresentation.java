@@ -2,15 +2,14 @@ package com.apipokedex.apipokedex.Pokemon;
 
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.utils.Genero;
+import com.apipokedex.apipokedex.utils.Status;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,12 +26,24 @@ public interface PokemonRepresentation {
         @NotNull
         @NotEmpty(message = "O campo não pode ser vazio")
         private String nome;
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
         private Long saude;
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
         private Long ataque;
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
         private Long defesa;
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
         private Long velocidade;
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
         private Genero genero;
-
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
+        private Status status;
 
     }
 
@@ -47,7 +58,7 @@ public interface PokemonRepresentation {
         private Long defesa;
         private Long velocidade;
         private Genero genero;
-        private Treinador treinador;
+        private Status status;
 
 
         public static Detalhes from(Pokemon pokemon) {
@@ -59,7 +70,7 @@ public interface PokemonRepresentation {
                     .defesa(pokemon.getDefesa())
                     .velocidade(pokemon.getVelocidade())
                     .genero(pokemon.getGenero())
-                    .treinador(pokemon.getTreinador())
+                    .status(pokemon.getStatus())
                     .build();
         }
     }
@@ -75,6 +86,7 @@ public interface PokemonRepresentation {
         private Long defesa;
         private Long velocidade;
         private Genero genero;
+        private Status status;
 
         public static Padrao from(Pokemon pokemon) {
             return Padrao.builder()
@@ -85,6 +97,7 @@ public interface PokemonRepresentation {
                     .defesa(pokemon.getDefesa())
                     .velocidade(pokemon.getVelocidade())
                     .genero(pokemon.getGenero())
+                    .status(pokemon.getStatus())
                     .build();
         }
 

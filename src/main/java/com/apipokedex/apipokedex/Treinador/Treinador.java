@@ -3,13 +3,12 @@ package com.apipokedex.apipokedex.Treinador;
 import com.apipokedex.apipokedex.Pokemon.Pokemon;
 import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Genero;
+import com.apipokedex.apipokedex.utils.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -36,6 +35,10 @@ public class Treinador {
     @Column(name = "genero")
     @Enumerated(EnumType.STRING)
     private Genero genero;
+
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @Column(name = "nascimento")
     private Date nascimento;

@@ -8,7 +8,4 @@ import java.util.List;
 public interface PokemonRepository extends PagingAndSortingRepository<Pokemon, Long>,
         QuerydslPredicateExecutor<Pokemon> {
 
-    List<Pokemon> findAll();
-
-
 }
