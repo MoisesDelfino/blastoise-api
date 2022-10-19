@@ -1,5 +1,6 @@
 package com.apipokedex.apipokedex.Treinador;
 
+import com.apipokedex.apipokedex.Pokemon.Pokemon;
 import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Genero;
 import com.querydsl.core.types.Predicate;
@@ -12,6 +13,8 @@ import com.apipokedex.apipokedex.exceptions.NotfoundException;
 import com.apipokedex.apipokedex.exceptions.TreinadorServiceException;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -56,6 +59,7 @@ public class TreinadorService {
             TreinadorRepresentation.CriarOuAtualizar atualizar) {
 
         this.getTreinador(idTreinador);
+
         Treinador treinadorParaAtualizar = Treinador.builder()
                     .id(idTreinador)
                     .nome(atualizar.getNome())
@@ -64,6 +68,19 @@ public class TreinadorService {
                     .status(atualizar.getStatus())
                     .nascimento(atualizar.getNascimento())
                     .build();
+
+
+//        Pokemon pokemon = new Pokemon();
+//
+//        List pokemonList = new ArrayList();
+//
+//        pokemonList.add(pokemon);
+//
+//        treinadorParaAtualizar.getPokemonList().clear();
+//
+//        treinadorParaAtualizar.getPokemonList().addAll(pokemonList);
+
+
 
         return this.treinadorRepository.save(treinadorParaAtualizar);
 
