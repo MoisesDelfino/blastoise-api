@@ -3,6 +3,7 @@ package com.apipokedex.apipokedex.Treinador;
 import com.apipokedex.apipokedex.Pokemon.PokemonRepresentation;
 import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Genero;
+import com.apipokedex.apipokedex.utils.Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +29,7 @@ public interface TreinadorRepresentation {
         private String nome;
         private Classificacao classificacao;
         private Genero genero;
+        private Status status;
         private Date nascimento;
     }
 
@@ -39,6 +41,7 @@ public interface TreinadorRepresentation {
         private Classificacao classificacao;
         private Date nascimento;
         private Genero genero;
+        private Status status;
         private List<PokemonRepresentation.Padrao> pokemons;
 
         public static Detalhes from(Treinador treinador) {
@@ -48,12 +51,14 @@ public interface TreinadorRepresentation {
                             .nome(treinador.getNome())
                             .classificacao(treinador.getClassificacao())
                             .genero(treinador.getGenero())
+                            .status(treinador.getStatus())
                             .nascimento(treinador.getNascimento())
                             .build() :
                     Detalhes.builder()
                             .id(treinador.getId())
                             .nome(treinador.getNome())
                             .genero(treinador.getGenero())
+                            .status(treinador.getStatus())
                             .classificacao(treinador.getClassificacao())
                             .nascimento(treinador.getNascimento())
                             .pokemons(PokemonRepresentation.Padrao.from(treinador.getPokemonList()))

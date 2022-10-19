@@ -3,11 +3,14 @@ package com.apipokedex.apipokedex.Pokemon;
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.Treinador.TreinadorService;
 import com.apipokedex.apipokedex.exceptions.NotfoundException;
+import com.apipokedex.apipokedex.exceptions.TreinadorServiceException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
+
 
 
 @Service
@@ -20,9 +23,20 @@ public class PokemonService {
                              Long idTreinador,
                              PokemonRepresentation.CriarOuAtualizar criar) {
 
+        if(Objects.isNull(criar.getNome())){
+            log.error(criar.toString());
+            throw new TreinadorServiceException("O nome não pode ser nulo");
+        }
+
+        if(criar.getNome().isEmpty()){
+            log.error(criar.toString());
+            throw new TreinadorServiceException("O nome não pode ser vazio");
+        }
+
         Treinador treinador = treinadorService.buscarUmTreinador(idTreinador);
 
-        return this.pokemonRepository.save(Pokemon.builder()
+
+        Pokemon pokemonCriado = this.pokemonRepository.save(Pokemon.builder()
                 .treinador(treinador)
                 .nome(criar.getNome())
                 .saude(criar.getSaude())
@@ -30,7 +44,11 @@ public class PokemonService {
                 .defesa(criar.getDefesa())
                 .velocidade(criar.getVelocidade())
                 .genero(criar.getGenero())
+                .status(criar.getStatus())
                 .build());
+
+
+        return pokemonCriado;
     }
 
     public Pokemon buscarUmPokemon(Long idPokemon) {
@@ -66,6 +84,7 @@ public class PokemonService {
                 .defesa(atualizar.getDefesa())
                 .velocidade(atualizar.getVelocidade())
                 .genero(atualizar.getGenero())
+                .status(atualizar.getStatus())
                 .build();
 
         return this.pokemonRepository.save(pokemonParaAtualizar);
