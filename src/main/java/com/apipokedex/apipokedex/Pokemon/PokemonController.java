@@ -46,4 +46,17 @@ public class PokemonController {
                 .ok(detalhes);
 
     }
+
+    @DeleteMapping("/{idPokemon}")
+    public ResponseEntity<PokemonRepresentation.Detalhes> inativarPokemon(
+            @PathVariable Long idTreinador,
+            @PathVariable Long idPokemon) {
+
+        Pokemon pokemonInativo = this.pokemonService.inativar(treinadorService, idTreinador, idPokemon);
+
+        PokemonRepresentation.Detalhes detalhes = PokemonRepresentation.Detalhes.from(pokemonInativo);
+
+        return ResponseEntity.ok(detalhes);
+
+    }
 }

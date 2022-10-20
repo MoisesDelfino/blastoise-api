@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 
 import javax.persistence.*;
@@ -43,6 +44,7 @@ public class Treinador {
     @Column(name = "nascimento")
     private Date nascimento;
 
+    @Where(clause = "status='A'")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "treinador", orphanRemoval = false)
     List<Pokemon> pokemonList = new ArrayList<>();
 }

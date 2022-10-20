@@ -1,6 +1,7 @@
 package com.apipokedex.apipokedex.Treinador;
 
 import com.apipokedex.apipokedex.utils.Paginacao;
+import com.apipokedex.apipokedex.utils.Status;
 import com.querydsl.core.types.Predicate;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;

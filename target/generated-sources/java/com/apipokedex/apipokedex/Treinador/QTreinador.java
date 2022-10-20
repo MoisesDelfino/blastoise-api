@@ -6,6 +6,7 @@ import com.querydsl.core.annotations.Generated;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
+
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
 
@@ -31,6 +32,8 @@ public class QTreinador extends EntityPathBase<Treinador> {
     public final StringPath nome = createString("nome");
 
     public final ListPath<com.apipokedex.apipokedex.Pokemon.Pokemon, com.apipokedex.apipokedex.Pokemon.QPokemon> pokemonList = this.<com.apipokedex.apipokedex.Pokemon.Pokemon, com.apipokedex.apipokedex.Pokemon.QPokemon>createList("pokemonList", com.apipokedex.apipokedex.Pokemon.Pokemon.class, com.apipokedex.apipokedex.Pokemon.QPokemon.class, PathInits.DIRECT2);
+
+    public final EnumPath<com.apipokedex.apipokedex.utils.Status> status = createEnum("status", com.apipokedex.apipokedex.utils.Status.class);
 
     public QTreinador(String variable) {
         super(Treinador.class, forVariable(variable));

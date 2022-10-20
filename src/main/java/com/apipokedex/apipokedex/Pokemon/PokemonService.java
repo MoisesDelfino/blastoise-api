@@ -4,6 +4,7 @@ import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.Treinador.TreinadorService;
 import com.apipokedex.apipokedex.exceptions.NotfoundException;
 import com.apipokedex.apipokedex.exceptions.NullException;
+import com.apipokedex.apipokedex.utils.Status;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -60,7 +61,17 @@ public class PokemonService {
                 this.pokemonRepository.findById(idPokemon);
 
         if (pokemonAtual.isPresent()) {
-            return pokemonAtual.get();
+
+            if (pokemonAtual.get().getStatus() == Status.A) {
+
+                return pokemonAtual.get();
+
+            } else {
+
+                throw new NotfoundException("Pokemon Desativado");
+            }
+
+
         } else {
             throw new NotfoundException("Pokemon não encontrado");
         }
@@ -109,4 +120,32 @@ public class PokemonService {
 
     }
 
+    public Pokemon inativar(
+            TreinadorService treinadorService,
+            Long idTreinador,
+            Long idPokemon) {
+
+        Pokemon pokemon = this.buscarUmPokemon(idPokemon);
+        Treinador treinador = treinadorService.buscarUmTreinador(idTreinador);
+
+        Long idTreinadorPokemonCorreto = pokemon.getTreinador().getId();
+
+        if (idTreinadorPokemonCorreto != idTreinador) {
+            throw new NotfoundException("Esse pokemon não pertence ao treinador com id: " + idTreinador);
+        }
+
+
+        return this.pokemonRepository.save(Pokemon.builder()
+                .id(idPokemon)
+                .treinador(treinador)
+                .nome(pokemon.getNome())
+                .saude(pokemon.getSaude())
+                .ataque(pokemon.getAtaque())
+                .defesa(pokemon.getDefesa())
+                .velocidade(pokemon.getVelocidade())
+                .genero(pokemon.getGenero())
+                .status(Status.D)
+                .build());
+
+    }
 }
