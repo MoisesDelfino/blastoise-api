@@ -3,8 +3,8 @@ package com.apipokedex.apipokedex.Pokemon;
 
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.utils.Genero;
+import com.apipokedex.apipokedex.utils.Status;
 import lombok.*;
-
 import javax.persistence.*;
 import javax.persistence.ManyToOne;
 
@@ -20,7 +20,7 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pokemon")
-    private Integer id;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
@@ -41,9 +41,11 @@ public class Pokemon {
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
-    @ManyToOne(fetch = FetchType.LAZY) //, mappedBy = "treinador", orphanRemoval = true
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @ManyToOne
     @JoinColumn(name = "id_treinador")
-    Treinador treinador = new Treinador();
-
-
+    private Treinador treinador;
 }

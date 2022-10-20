@@ -1,11 +1,14 @@
 package com.apipokedex.apipokedex.Treinador;
 
+import com.apipokedex.apipokedex.Pokemon.PokemonRepresentation;
+import com.apipokedex.apipokedex.utils.Classificacao;
+import com.apipokedex.apipokedex.utils.Genero;
+import com.apipokedex.apipokedex.utils.Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.authenticator.SavedRequest;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -24,8 +27,9 @@ public interface TreinadorRepresentation {
         @NotNull(message = "O campo nome não pode ser nulo")
         @NotEmpty
         private String nome;
-        private String classificacao;
+        private Classificacao classificacao;
         private Genero genero;
+        private Status status;
         private Date nascimento;
     }
 
@@ -34,16 +38,28 @@ public interface TreinadorRepresentation {
     class Detalhes{
         private Long id;
         private String nome;
-        private String classificacao;
+        private Classificacao classificacao;
         private Date nascimento;
+        private Genero genero;
+        private Status status;
         private List<PokemonRepresentation.Padrao> pokemons;
 
         public static Detalhes from(Treinador treinador) {
-            return Objects.isNull(treinador.getPokemonList()) || treinador.getPokemonList().isEmpty()?
+            return Objects.isNull(treinador.getPokemonList()) || treinador.getPokemonList().isEmpty() ?
+                    Detalhes.builder()
+                            .id(treinador.getId())
+                            .nome(treinador.getNome())
+                            .classificacao(treinador.getClassificacao())
+                            .genero(treinador.getGenero())
+                            .status(treinador.getStatus())
+                            .nascimento(treinador.getNascimento())
+                            .build() :
                     Detalhes.builder()
                             .id(treinador.getId())
                             .nome(treinador.getNome())
                             .genero(treinador.getGenero())
+                            .status(treinador.getStatus())
+                            .classificacao(treinador.getClassificacao())
                             .nascimento(treinador.getNascimento())
                             .pokemons(PokemonRepresentation.Padrao.from(treinador.getPokemonList()))
                             .build();
@@ -61,16 +77,12 @@ public interface TreinadorRepresentation {
             return treinador.getPokemonList().isEmpty() ?
                     Lista.builder()
                             .id(treinador.getId())
-                            .nome(
-                                    String.format("%s %s", treinador.getNome())
-                            )
+                            .nome(treinador.getNome())
                             .build() :
 
                     Lista.builder()
                             .id(treinador.getId())
-                            .nome(
-                                    String.format("%s %s", treinador.getNome())
-                            )
+                            .nome(treinador.getNome())
                             .pokemon(PokemonRepresentation.Padrao
                                     .from(treinador.getPokemonList().get(0)))
                             .build();

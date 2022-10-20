@@ -1,17 +1,19 @@
 package com.apipokedex.apipokedex.Treinador;
 
-
-import com.apipokedex.apipokedex.exceptions.NotfoundException;
-import com.apipokedex.apipokedex.exceptions.TreinadorServiceException;
+import com.apipokedex.apipokedex.utils.Classificacao;
+import com.apipokedex.apipokedex.utils.Status;
 import com.querydsl.core.types.Predicate;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import com.apipokedex.apipokedex.exceptions.NotfoundException;
+import com.apipokedex.apipokedex.exceptions.NullException;
 
 import java.util.Objects;
 import java.util.Optional;
+
 
 @Service
 @AllArgsConstructor
@@ -23,18 +25,19 @@ public class TreinadorService {
 
         if(Objects.isNull(criar.getNome())){
             log.error(criar.toString());
-            throw new TreinadorServiceException("O nome não pode ser nulo");
+            throw new NullException("O nome não pode ser nulo");
         }
 
         if(criar.getNome().isEmpty()){
             log.error(criar.toString());
-            throw new TreinadorServiceException("O nome não pode ser vazio");
+            throw new NullException("O nome não pode ser vazio");
         }
 
         return this.treinadorRepository.save(Treinador.builder()
                 .nome(criar.getNome())
-                .classificacao((criar.getClassificacao())
+                .classificacao(Classificacao.valueOf(criar.getClassificacao().name()))
                 .genero(criar.getGenero())
+                .status(criar.getStatus())
                 .nascimento(criar.getNascimento())
                 .build());
     }
@@ -54,12 +57,15 @@ public class TreinadorService {
         this.getTreinador(idTreinador);
 
         Treinador treinadorParaAtualizar = Treinador.builder()
-                .id(idTreinador)
-                .nome(atualizar.getNome())
-                .classificacao(atualizar.getClassificacao())
-                .genero(atualizar.getGenero())
-                .nascimento(atualizar.getNascimento())
-                .build();
+                    .id(idTreinador)
+                    .nome(atualizar.getNome())
+                    .classificacao(Classificacao.valueOf(atualizar.getClassificacao().name()))
+                    .genero(atualizar.getGenero())
+                    .status(atualizar.getStatus())
+                    .nascimento(atualizar.getNascimento())
+                    .build();
+
+
 
         return this.treinadorRepository.save(treinadorParaAtualizar);
 
@@ -71,7 +77,6 @@ public class TreinadorService {
         return this.getTreinador(idTreinador);
 
     }
-
 
     private Treinador getTreinador(Long idTreinador) {
         Optional<Treinador> treinadorAtual =

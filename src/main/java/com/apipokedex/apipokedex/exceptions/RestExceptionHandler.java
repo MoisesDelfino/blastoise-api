@@ -15,11 +15,11 @@ import java.time.LocalDateTime;
 public class RestExceptionHandler {
 
 
-    @ExceptionHandler(TreinadorServiceException.class)
+    @ExceptionHandler(NullException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public RespostaErro erroTreinadorService(
-            TreinadorServiceException treinadorServiceException,
+            NullException treinadorServiceException,
             HttpServletRequest request) {
         return RespostaErro.builder()
                 .timestamp(LocalDateTime.now())
