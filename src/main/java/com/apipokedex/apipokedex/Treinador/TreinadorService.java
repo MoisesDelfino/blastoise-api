@@ -1,6 +1,7 @@
 package com.apipokedex.apipokedex.Treinador;
 
 import com.apipokedex.apipokedex.utils.Classificacao;
+import com.apipokedex.apipokedex.utils.Status;
 import com.querydsl.core.types.Predicate;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
