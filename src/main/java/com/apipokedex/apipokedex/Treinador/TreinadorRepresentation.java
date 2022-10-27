@@ -29,7 +29,6 @@ public interface TreinadorRepresentation {
         private String nome;
         private Classificacao classificacao;
         private Genero genero;
-        private Status status;
         private Date nascimento;
     }
 
