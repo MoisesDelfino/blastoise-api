@@ -44,7 +44,7 @@ public class PokemonService {
                 .defesa(criar.getDefesa())
                 .velocidade(criar.getVelocidade())
                 .genero(criar.getGenero())
-                .status(criar.getStatus())
+                .status(Status.A)
                 .build());
 
 
@@ -113,7 +113,7 @@ public class PokemonService {
                 .defesa(atualizar.getDefesa())
                 .velocidade(atualizar.getVelocidade())
                 .genero(atualizar.getGenero())
-                .status(atualizar.getStatus())
+                .status(Status.A)
                 .build();
 
         return this.pokemonRepository.save(pokemonParaAtualizar);

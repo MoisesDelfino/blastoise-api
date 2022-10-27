@@ -1,5 +1,6 @@
 package com.apipokedex.apipokedex.Treinador;
 
+import com.apipokedex.apipokedex.Pokemon.Pokemon;
 import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Status;
 import com.querydsl.core.types.Predicate;
@@ -37,7 +38,7 @@ public class TreinadorService {
                 .nome(criar.getNome())
                 .classificacao(Classificacao.valueOf(criar.getClassificacao().name()))
                 .genero(criar.getGenero())
-                .status(criar.getStatus())
+                .status(Status.A)
                 .nascimento(criar.getNascimento())
                 .build());
     }
@@ -61,11 +62,9 @@ public class TreinadorService {
                     .nome(atualizar.getNome())
                     .classificacao(Classificacao.valueOf(atualizar.getClassificacao().name()))
                     .genero(atualizar.getGenero())
-                    .status(atualizar.getStatus())
+                    .status(Status.A)
                     .nascimento(atualizar.getNascimento())
                     .build();
-
-
 
         return this.treinadorRepository.save(treinadorParaAtualizar);
 
@@ -87,5 +86,19 @@ public class TreinadorService {
         } else {
             throw new NotfoundException("Treinador não encontrado");
         }
+    }
+
+    public Treinador inativar(Long idTreinador) {
+
+            Treinador treinador = this.buscarUmTreinador(idTreinador);
+
+
+            return this.treinadorRepository.save(Treinador.builder()
+                    .id(idTreinador)
+                    .nome(treinador.getNome())
+                    .nascimento(treinador.getNascimento())
+                    .classificacao(treinador.getClassificacao())
+                    .status(Status.D)
+                    .build());
     }
 }
