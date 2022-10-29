@@ -94,7 +94,7 @@ public class TreinadorController {
     }
 
     @DeleteMapping("/{idTreinador}")
-    public ResponseEntity<TreinadorRepresentation.Detalhes> inativarPokemon(
+    public ResponseEntity<TreinadorRepresentation.Detalhes> inativarTreinador(
             @PathVariable Long idTreinador) {
 
         Treinador treinadorInativo = this.treinadorService.inativar(idTreinador);

@@ -1,6 +1,5 @@
 package com.apipokedex.apipokedex.Treinador;
 
-import com.apipokedex.apipokedex.Pokemon.Pokemon;
 import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Status;
 import com.querydsl.core.types.Predicate;
