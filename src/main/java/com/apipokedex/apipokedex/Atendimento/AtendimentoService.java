@@ -5,8 +5,11 @@ import com.apipokedex.apipokedex.Pokemon.PokemonService;
 import com.apipokedex.apipokedex.exceptions.NotfoundException;
 import com.apipokedex.apipokedex.exceptions.NullException;
 import com.apipokedex.apipokedex.utils.Status;
+import com.querydsl.core.types.Predicate;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -35,6 +38,10 @@ public class AtendimentoService {
 
 
         return atendimentoCriado;
+    }
+    public Page<Atendimento> buscarTodos(Predicate filtroURI, Pageable pageable) {
+        return this.atendimentoRepository.findAll(pageable);
+
     }
 
     public Atendimento buscarUmAtendimento(Long idAtendimento) {
@@ -75,13 +82,14 @@ public class AtendimentoService {
 
         Atendimento atendimento = this.buscarUmAtendimento(idAtendimento);
 
-        Long idPokemonAtendimentoCorreto = atendimento.getPokemon().getId();
+        /*Long idPokemonAtendimentoCorreto = atendimento.getPokemon().getId();*/
 
 
         Atendimento atendimentoParaAtualizar = Atendimento.builder()
                 .id(idAtendimento)
                 .urgencia(atualizar.getUrgencia())
                 .status(Status.A)
+                .pokemon(atendimento.getPokemon())
                 .build();
 
         return this.atendimentoRepository.save(atendimentoParaAtualizar);
@@ -89,22 +97,14 @@ public class AtendimentoService {
     }
     public Atendimento inativar(
             PokemonService pokemonService,
-            Long idPokemon,
             Long idAtendimento) {
 
         Atendimento atendimento = this.buscarUmAtendimento(idAtendimento);
-        Pokemon pokemon = pokemonService.buscarUmPokemon(idPokemon);
-
-        Long idPokemonAtendimentoCorreto = atendimento.getPokemon().getId();;
-
-        if (idPokemonAtendimentoCorreto != idPokemon) {
-            throw new NotfoundException("Esse atendimento não pertence ao treinador com id: " + idPokemon);
-        }
 
 
         return this.atendimentoRepository.save(Atendimento.builder()
                 .id(idAtendimento)
-                .pokemon(pokemon)
+                .pokemon(atendimento.getPokemon())
                 .urgencia(atendimento.getUrgencia())
                 .status(Status.D)
                 .build());
