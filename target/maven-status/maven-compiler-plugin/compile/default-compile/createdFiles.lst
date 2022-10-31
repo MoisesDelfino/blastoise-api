@@ -1,4 +1,5 @@
 com/apipokedex/apipokedex/Treinador/TreinadorRepresentation$CriarOuAtualizar$CriarOuAtualizarBuilder.class
+com/apipokedex/apipokedex/Atendimento/AtendimentoRepresentation$Lista$ListaBuilder.class
 com/apipokedex/apipokedex/Treinador/TreinadorRepresentation$Detalhes$DetalhesBuilder.class
 com/apipokedex/apipokedex/Treinador/TreinadorRepresentation.class
 com/apipokedex/apipokedex/Pokemon/PokemonService.class
@@ -8,6 +9,7 @@ com/apipokedex/apipokedex/Treinador/TreinadorRepository.class
 com/apipokedex/apipokedex/Atendimento/Atendimento$AtendimentoBuilder.class
 com/apipokedex/apipokedex/utils/Classificacao.class
 com/apipokedex/apipokedex/Atendimento/QAtendimento.class
+com/apipokedex/apipokedex/Receita/ReceitaRepresentation$Lista$ListaBuilder.class
 com/apipokedex/apipokedex/utils/Status.class
 com/apipokedex/apipokedex/Treinador/TreinadorRepresentation$Lista.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepository.class
@@ -22,17 +24,24 @@ com/apipokedex/apipokedex/Treinador/TreinadorRepresentation$CriarOuAtualizar.cla
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation$Detalhes$DetalhesBuilder.class
 com/apipokedex/apipokedex/Treinador/TreinadorController.class
 com/apipokedex/apipokedex/exceptions/RespostaErro$RespostaErroBuilder.class
+com/apipokedex/apipokedex/Receita/ReceitaRepresentation.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation$Padrao$PadraoBuilder.class
 com/apipokedex/apipokedex/exceptions/NotfoundException.class
 com/apipokedex/apipokedex/Atendimento/AtendimentoRepresentation.class
+com/apipokedex/apipokedex/Receita/ReceitaRepository.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation$Detalhes.class
+com/apipokedex/apipokedex/Receita/ReceitaController.class
 com/apipokedex/apipokedex/utils/Genero.class
+com/apipokedex/apipokedex/Atendimento/AtendimentoRepresentation$Lista.class
 com/apipokedex/apipokedex/Pokemon/Pokemon.class
 com/apipokedex/apipokedex/Tipo/TipoPokemon$TipoPokemonBuilder.class
 com/apipokedex/apipokedex/exceptions/RestExceptionHandler.class
+com/apipokedex/apipokedex/Receita/Receita$ReceitaBuilder.class
 com/apipokedex/apipokedex/Treinador/TreinadorRepresentation$Detalhes.class
 com/apipokedex/apipokedex/utils/Paginacao$PaginacaoBuilder.class
 com/apipokedex/apipokedex/exceptions/RespostaErro.class
+com/apipokedex/apipokedex/Receita/ReceitaService.class
+com/apipokedex/apipokedex/Receita/QReceita.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation$Padrao.class
 com/apipokedex/apipokedex/utils/Paginacao.class
 com/apipokedex/apipokedex/Pokemon/QPokemon.class
@@ -40,6 +49,7 @@ com/apipokedex/apipokedex/Treinador/Treinador.class
 com/apipokedex/apipokedex/Atendimento/AtendimentoController.class
 com/apipokedex/apipokedex/Atendimento/AtendimentoRepresentation$Detalhes.class
 com/apipokedex/apipokedex/Tipo/TipoPokemon.class
+com/apipokedex/apipokedex/Receita/ReceitaRepresentation$Lista.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation.class
 com/apipokedex/apipokedex/Pokemon/PokemonController.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation$CriarOuAtualizar.class
@@ -47,5 +57,6 @@ com/apipokedex/apipokedex/Atendimento/AtendimentoService.class
 com/apipokedex/apipokedex/Atendimento/AtendimentoRepresentation$CriarOuAtualizar$CriarOuAtualizarBuilder.class
 com/apipokedex/apipokedex/exceptions/NullException.class
 com/apipokedex/apipokedex/ApiPokedexApplication.class
+com/apipokedex/apipokedex/Receita/Receita.class
 com/apipokedex/apipokedex/Tipo/QTipoPokemon.class
 com/apipokedex/apipokedex/Pokemon/PokemonRepresentation$CriarOuAtualizar$CriarOuAtualizarBuilder.class

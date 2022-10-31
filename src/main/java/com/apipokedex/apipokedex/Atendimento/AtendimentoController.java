@@ -47,9 +47,7 @@ public class AtendimentoController {
 
         Pageable pageable = PageRequest.of(paginaSelecionada, tamanhoPagina);
 
-        Page<Atendimento> atendimentoList = Objects.isNull(filtroURI) ?
-                this.atendimentoService.buscarTodos(filtroURI, pageable) :
-                this.atendimentoService.buscarTodos(filtroURI, pageable);
+        Page<Atendimento> atendimentoList = this.atendimentoService.buscarTodos(filtroURI, pageable);
 
         List<AtendimentoRepresentation.Lista> listaFinal =
                 AtendimentoRepresentation.Lista.from(atendimentoList.getContent());
