@@ -41,9 +41,6 @@ public interface PokemonRepresentation {
         @NotNull
         @NotEmpty(message = "O campo não pode ser vazio")
         private Genero genero;
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
-        private Status status;
 
     }
 

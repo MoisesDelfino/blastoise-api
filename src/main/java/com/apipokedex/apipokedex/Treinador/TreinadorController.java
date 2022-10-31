@@ -1,5 +1,7 @@
 package com.apipokedex.apipokedex.Treinador;
 
+import com.apipokedex.apipokedex.Pokemon.Pokemon;
+import com.apipokedex.apipokedex.Pokemon.PokemonRepresentation;
 import com.apipokedex.apipokedex.utils.Paginacao;
 import com.apipokedex.apipokedex.utils.Status;
 import com.querydsl.core.types.Predicate;
@@ -90,4 +92,17 @@ public class TreinadorController {
         return ResponseEntity
                 .ok(detalhes);
     }
+
+    @DeleteMapping("/{idTreinador}")
+    public ResponseEntity<TreinadorRepresentation.Detalhes> inativarTreinador(
+            @PathVariable Long idTreinador) {
+
+        Treinador treinadorInativo = this.treinadorService.inativar(idTreinador);
+
+        TreinadorRepresentation.Detalhes detalhes = TreinadorRepresentation.Detalhes.from(treinadorInativo);
+
+        return ResponseEntity.ok(detalhes);
+
+    }
+
 }

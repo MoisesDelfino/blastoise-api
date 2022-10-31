@@ -46,6 +46,5 @@ public class Pokemon {
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "id_treinador")
     private Treinador treinador;
 }

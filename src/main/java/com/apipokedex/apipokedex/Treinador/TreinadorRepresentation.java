@@ -29,7 +29,6 @@ public interface TreinadorRepresentation {
         private String nome;
         private Classificacao classificacao;
         private Genero genero;
-        private Status status;
         private Date nascimento;
     }
 
@@ -42,26 +41,15 @@ public interface TreinadorRepresentation {
         private Date nascimento;
         private Genero genero;
         private Status status;
-        private List<PokemonRepresentation.Padrao> pokemons;
 
         public static Detalhes from(Treinador treinador) {
-            return Objects.isNull(treinador.getPokemonList()) || treinador.getPokemonList().isEmpty() ?
-                    Detalhes.builder()
+            return Detalhes.builder()
                             .id(treinador.getId())
                             .nome(treinador.getNome())
                             .classificacao(treinador.getClassificacao())
                             .genero(treinador.getGenero())
                             .status(treinador.getStatus())
                             .nascimento(treinador.getNascimento())
-                            .build() :
-                    Detalhes.builder()
-                            .id(treinador.getId())
-                            .nome(treinador.getNome())
-                            .genero(treinador.getGenero())
-                            .status(treinador.getStatus())
-                            .classificacao(treinador.getClassificacao())
-                            .nascimento(treinador.getNascimento())
-                            .pokemons(PokemonRepresentation.Padrao.from(treinador.getPokemonList()))
                             .build();
         }
     }
@@ -71,20 +59,11 @@ public interface TreinadorRepresentation {
     class Lista {
         private Long id;
         private String nome;
-        private PokemonRepresentation.Padrao pokemon;
 
         private static Lista from(Treinador treinador) {
-            return treinador.getPokemonList().isEmpty() ?
-                    Lista.builder()
+            return Lista.builder()
                             .id(treinador.getId())
                             .nome(treinador.getNome())
-                            .build() :
-
-                    Lista.builder()
-                            .id(treinador.getId())
-                            .nome(treinador.getNome())
-                            .pokemon(PokemonRepresentation.Padrao
-                                    .from(treinador.getPokemonList().get(0)))
                             .build();
         }
 
