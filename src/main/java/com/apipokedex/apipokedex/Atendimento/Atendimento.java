@@ -28,4 +28,7 @@ public class Atendimento {
 
     @Column(name = "status")
     private Status status;
+
+    @Column(name = "sintomas")
+    private String sintomas;
 }
