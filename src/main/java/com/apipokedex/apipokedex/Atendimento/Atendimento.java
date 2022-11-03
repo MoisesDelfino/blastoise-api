@@ -6,6 +6,7 @@ import com.apipokedex.apipokedex.utils.Status;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -28,4 +29,10 @@ public class Atendimento {
 
     @Column(name = "status")
     private Status status;
+
+    @Column(name = "sintoma")
+    private String sintoma;
+
+    @Column(name = "dataHoraInicio")
+    private Date dataHoraInicio;
 }
