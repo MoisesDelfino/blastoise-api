@@ -1,7 +1,7 @@
 package com.apipokedex.apipokedex.Atendimento;
 
 import com.apipokedex.apipokedex.Pokemon.Pokemon;
-import com.apipokedex.apipokedex.Treinador.Treinador;
+import com.apipokedex.apipokedex.Prontuario.Prontuario;
 import com.apipokedex.apipokedex.utils.Status;
 import lombok.*;
 
@@ -35,4 +35,7 @@ public class Atendimento {
 
     @Column(name = "dataHoraInicio")
     private Date dataHoraInicio;
+
+    @OneToOne(mappedBy = "atendimento")
+    private Prontuario prontuario;
 }
