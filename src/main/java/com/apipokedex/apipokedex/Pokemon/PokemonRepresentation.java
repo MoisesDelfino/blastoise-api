@@ -1,6 +1,9 @@
 package com.apipokedex.apipokedex.Pokemon;
 
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemon;
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemonRepresentation;
 import com.apipokedex.apipokedex.Treinador.Treinador;
+import com.apipokedex.apipokedex.Treinador.TreinadorRepresentation;
 import com.apipokedex.apipokedex.utils.Genero;
 import com.apipokedex.apipokedex.utils.Status;
 import com.sun.istack.NotNull;
@@ -11,11 +14,10 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public interface PokemonRepresentation {
-
-
 
     @Data
     @Builder
@@ -42,8 +44,9 @@ public interface PokemonRepresentation {
         @NotEmpty(message = "O campo não pode ser vazio")
         private Genero genero;
 
-    }
+        private List<Long> tiposPokemonList;
 
+    }
 
     @Data
     @Builder
@@ -56,6 +59,7 @@ public interface PokemonRepresentation {
         private Long velocidade;
         private Genero genero;
         private Status status;
+        private List<TipoPokemonRepresentation.ListTipo> tiposPokemonList;
 
 
         public static Detalhes from(Pokemon pokemon) {
@@ -68,6 +72,7 @@ public interface PokemonRepresentation {
                     .velocidade(pokemon.getVelocidade())
                     .genero(pokemon.getGenero())
                     .status(pokemon.getStatus())
+                    .tiposPokemonList(TipoPokemonRepresentation.ListTipo.from(pokemon.getTiposPokemonList()))
                     .build();
         }
     }
@@ -84,6 +89,7 @@ public interface PokemonRepresentation {
         private Long velocidade;
         private Genero genero;
         private Status status;
+        private List<TipoPokemonRepresentation.ListTipo> tiposPokemonList;
 
         public static Padrao from(Pokemon pokemon) {
             return Padrao.builder()
@@ -95,6 +101,7 @@ public interface PokemonRepresentation {
                     .velocidade(pokemon.getVelocidade())
                     .genero(pokemon.getGenero())
                     .status(pokemon.getStatus())
+                    .tiposPokemonList(TipoPokemonRepresentation.ListTipo.from(pokemon.getTiposPokemonList()))
                     .build();
         }
 

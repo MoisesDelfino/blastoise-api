@@ -1,5 +1,8 @@
 package com.apipokedex.apipokedex.Pokemon;
 
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemon;
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemonRepository;
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemonRepresentation;
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.Treinador.TreinadorService;
 import com.apipokedex.apipokedex.exceptions.NotfoundException;
@@ -9,10 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-import java.util.Optional;
-
-
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -20,9 +21,12 @@ import java.util.Optional;
 public class PokemonService {
     private PokemonRepository pokemonRepository;
 
-    public Pokemon criarPokemon(TreinadorService treinadorService,
-                             Long idTreinador,
-                             PokemonRepresentation.CriarOuAtualizar criar) {
+    private TipoPokemonRepository tipoPokemonRepository;
+
+    public Pokemon criarPokemon(
+            TreinadorService treinadorService,
+            Long idTreinador,
+            PokemonRepresentation.CriarOuAtualizar criar) {
 
         if(Objects.isNull(criar.getNome())){
             log.error(criar.toString());
@@ -34,7 +38,14 @@ public class PokemonService {
             throw new NullException("O nome não pode ser vazio");
         }
 
+        List<TipoPokemon> pokemonList = new ArrayList<>();
+
+        criar.getTiposPokemonList().stream().forEach(id -> {
+            pokemonList.add(this.tipoPokemonRepository.findById(id).get());
+        });
+//        List<TipoPokemon> pokemonList = this.tipoPokemonRepository.findAllById(criar.getTiposPokemonList());
         Treinador treinador = treinadorService.buscarUmTreinador(idTreinador);
+
 
         Pokemon pokemonCriado = this.pokemonRepository.save(Pokemon.builder()
                 .treinador(treinador)
@@ -44,6 +55,7 @@ public class PokemonService {
                 .defesa(criar.getDefesa())
                 .velocidade(criar.getVelocidade())
                 .genero(criar.getGenero())
+                .tiposPokemonList(pokemonList)
                 .status(Status.A)
                 .build());
 
