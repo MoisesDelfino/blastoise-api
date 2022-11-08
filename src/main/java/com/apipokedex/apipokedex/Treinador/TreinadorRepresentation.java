@@ -24,8 +24,7 @@ public interface TreinadorRepresentation {
     @AllArgsConstructor
     @NoArgsConstructor
     class CriarOuAtualizar {
-        @NotNull(message = "O campo nome não pode ser nulo")
-        @NotEmpty
+        @NotNull(message = "O campo nome não foi informado")
         private String nome;
         private Classificacao classificacao;
         private Genero genero;

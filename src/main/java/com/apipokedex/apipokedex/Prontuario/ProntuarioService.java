@@ -1,14 +1,13 @@
 package com.apipokedex.apipokedex.Prontuario;
 
-import com.apipokedex.apipokedex.Treinador.Treinador;
-import com.apipokedex.apipokedex.Treinador.TreinadorRepository;
-import com.apipokedex.apipokedex.Treinador.TreinadorRepresentation;
-import com.apipokedex.apipokedex.exceptions.NullException;
-import com.apipokedex.apipokedex.utils.Classificacao;
-import com.apipokedex.apipokedex.utils.Status;
 
-import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
+@Service
+@AllArgsConstructor
+@Slf4j
 public class ProntuarioService {
     private ProntuarioRepository prontuarioRepository;
     public Prontuario criarProntuario(ProntuarioRepresentation.CriarOuAtualizar criar) {

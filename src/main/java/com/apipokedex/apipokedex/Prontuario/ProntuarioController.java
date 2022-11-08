@@ -1,8 +1,6 @@
 package com.apipokedex.apipokedex.Prontuario;
 
-import com.apipokedex.apipokedex.Treinador.Treinador;
-import com.apipokedex.apipokedex.Treinador.TreinadorRepresentation;
-import com.apipokedex.apipokedex.Treinador.TreinadorService;
+
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
