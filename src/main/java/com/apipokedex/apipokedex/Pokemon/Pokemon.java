@@ -1,12 +1,16 @@
 package com.apipokedex.apipokedex.Pokemon;
 
 
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemon;
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemonRepository;
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemonRepresentation;
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.utils.Genero;
 import com.apipokedex.apipokedex.utils.Status;
 import lombok.*;
 import javax.persistence.*;
 import javax.persistence.ManyToOne;
+import java.util.*;
 
 
 @Entity
@@ -41,10 +45,23 @@ public class Pokemon {
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
+    @ManyToMany
+//    @JoinTable(name = "pokemons_tipos",
+//            joinColumns = @JoinColumn(name = "pokemon_fk"),
+//            inverseJoinColumns =  @JoinColumn(name = "tipo_pokemon_fk"))
+    private List<TipoPokemon> tiposPokemonList = new ArrayList<>();
+
+
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;
 
     @ManyToOne
     private Treinador treinador;
+
+//    public void addTipo(TipoPokemon tipoPokemon) {
+//        this.tiposPokemonList.add(tipoPokemon);
+//        tipoPokemon.getPokemonList().add(this);
+//    }
+
 }

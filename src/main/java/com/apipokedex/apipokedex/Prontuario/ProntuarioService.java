@@ -6,9 +6,15 @@ import com.apipokedex.apipokedex.Treinador.TreinadorRepresentation;
 import com.apipokedex.apipokedex.exceptions.NullException;
 import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Status;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+@Service
+@AllArgsConstructor
+@Slf4j
 public class ProntuarioService {
     private ProntuarioRepository prontuarioRepository;
     public Prontuario criarProntuario(ProntuarioRepresentation.CriarOuAtualizar criar) {

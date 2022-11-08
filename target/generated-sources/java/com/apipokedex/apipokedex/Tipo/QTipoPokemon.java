@@ -2,6 +2,7 @@ package com.apipokedex.apipokedex.Tipo;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemon;
 import com.querydsl.core.annotations.Generated;
 import com.querydsl.core.types.dsl.*;
 

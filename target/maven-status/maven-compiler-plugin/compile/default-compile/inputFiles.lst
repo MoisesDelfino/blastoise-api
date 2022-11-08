@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Pokemon\PokemonRepresentation.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Treinador\TreinadorRepresentation.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\target\generated-sources\java\com\apipokedex\apipokedex\TipoPokemon\QTipoPokemon.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\target\generated-sources\java\com\apipokedex\apipokedex\Pokemon\QPokemon.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Pokemon\PokemonService.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\TipoPokemon\TipoPokemonRepresentation.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\utils\Classificacao.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\exceptions\RestExceptionHandler.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\utils\Status.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\utils\Genero.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Treinador\TreinadorService.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\TipoPokemon\TipoPokemonRepository.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\utils\Paginacao.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\ApiPokedexApplication.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\exceptions\NullException.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\exceptions\RespostaErro.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\TipoPokemon\TipoPokemon.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Treinador\TreinadorController.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Treinador\TreinadorRepository.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\exceptions\NotfoundException.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Pokemon\PokemonController.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Pokemon\PokemonRepository.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Treinador\Treinador.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\target\generated-sources\java\com\apipokedex\apipokedex\Treinador\QTreinador.java
+C:\Users\lucas\OneDrive\Área de Trabalho\blastoise-api\src\main\java\com\apipokedex\apipokedex\Pokemon\Pokemon.java
+=======
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/exceptions/RestExceptionHandler.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/Treinador/TreinadorRepository.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/target/generated-sources/java/com/apipokedex/apipokedex/Receita/QReceita.java
@@ -33,3 +60,4 @@
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/utils/Status.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/Atendimento/AtendimentoRepresentation.java
 /home/moises/Documents/ADS/4 fase/Dev. Web/blastoise/blastoise-api/src/main/java/com/apipokedex/apipokedex/ApiPokedexApplication.java
+>>>>>>> 7145b2c55c43e52bbb7b51cd23b2c7607f0ee740
