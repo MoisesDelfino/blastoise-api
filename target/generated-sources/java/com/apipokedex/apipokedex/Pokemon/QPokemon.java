@@ -36,6 +36,8 @@ public class QPokemon extends EntityPathBase<Pokemon> {
 
     public final EnumPath<com.apipokedex.apipokedex.utils.Status> status = createEnum("status", com.apipokedex.apipokedex.utils.Status.class);
 
+    public final SetPath<com.apipokedex.apipokedex.TipoPokemon.TipoPokemon, com.apipokedex.apipokedex.TipoPokemon.QTipoPokemon> tiposPokemonList = this.<com.apipokedex.apipokedex.TipoPokemon.TipoPokemon, com.apipokedex.apipokedex.TipoPokemon.QTipoPokemon>createSet("tiposPokemonList", com.apipokedex.apipokedex.TipoPokemon.TipoPokemon.class, com.apipokedex.apipokedex.TipoPokemon.QTipoPokemon.class, PathInits.DIRECT2);
+
     protected com.apipokedex.apipokedex.Treinador.QTreinador treinador;
 
     public final NumberPath<Long> velocidade = createNumber("velocidade", Long.class);

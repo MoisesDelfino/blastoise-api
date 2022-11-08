@@ -1,7 +1,9 @@
 package com.apipokedex.apipokedex.Pokemon;
 
+import com.apipokedex.apipokedex.TipoPokemon.TipoPokemonRepository;
 import com.apipokedex.apipokedex.Treinador.TreinadorService;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class PokemonController {
     private PokemonService pokemonService;
-
     private TreinadorService treinadorService;
 
     @PostMapping("/")
