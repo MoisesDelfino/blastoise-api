@@ -6,7 +6,6 @@ import com.querydsl.core.annotations.Generated;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
-
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
 
@@ -23,9 +22,15 @@ public class QAtendimento extends EntityPathBase<Atendimento> {
 
     public static final QAtendimento atendimento = new QAtendimento("atendimento");
 
+    public final DateTimePath<java.util.Date> dataHoraInicio = createDateTime("dataHoraInicio", java.util.Date.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     protected com.apipokedex.apipokedex.Pokemon.QPokemon pokemon;
+
+    protected com.apipokedex.apipokedex.Prontuario.QProntuario prontuario;
+
+    public final StringPath sintoma = createString("sintoma");
 
     public final EnumPath<com.apipokedex.apipokedex.utils.Status> status = createEnum("status", com.apipokedex.apipokedex.utils.Status.class);
 
@@ -50,6 +55,7 @@ public class QAtendimento extends EntityPathBase<Atendimento> {
     public QAtendimento(Class<? extends Atendimento> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.pokemon = inits.isInitialized("pokemon") ? new com.apipokedex.apipokedex.Pokemon.QPokemon(forProperty("pokemon"), inits.get("pokemon")) : null;
+        this.prontuario = inits.isInitialized("prontuario") ? new com.apipokedex.apipokedex.Prontuario.QProntuario(forProperty("prontuario"), inits.get("prontuario")) : null;
     }
 
     public com.apipokedex.apipokedex.Pokemon.QPokemon pokemon() {
@@ -57,6 +63,13 @@ public class QAtendimento extends EntityPathBase<Atendimento> {
             pokemon = new com.apipokedex.apipokedex.Pokemon.QPokemon(forProperty("pokemon"));
         }
         return pokemon;
+    }
+
+    public com.apipokedex.apipokedex.Prontuario.QProntuario prontuario() {
+        if (prontuario == null) {
+            prontuario = new com.apipokedex.apipokedex.Prontuario.QProntuario(forProperty("prontuario"));
+        }
+        return prontuario;
     }
 
 }

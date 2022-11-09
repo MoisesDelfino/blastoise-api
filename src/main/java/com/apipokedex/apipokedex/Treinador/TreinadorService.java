@@ -23,16 +23,6 @@ public class TreinadorService {
     private TreinadorRepository treinadorRepository;
     public Treinador criarTreinador(TreinadorRepresentation.CriarOuAtualizar criar) {
 
-        if(Objects.isNull(criar.getNome())){
-            log.error(criar.toString());
-            throw new NullException("O nome não pode ser nulo");
-        }
-
-        if(criar.getNome().isEmpty()){
-            log.error(criar.toString());
-            throw new NullException("O nome não pode ser vazio");
-        }
-
         return this.treinadorRepository.save(Treinador.builder()
                 .nome(criar.getNome())
                 .classificacao(Classificacao.valueOf(criar.getClassificacao().name()))

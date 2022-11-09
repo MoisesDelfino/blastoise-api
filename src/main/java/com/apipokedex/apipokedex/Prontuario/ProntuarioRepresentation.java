@@ -34,8 +34,8 @@ public interface ProntuarioRepresentation {
         private Atendimento atendimento;
         private String consideracoes;
 
-        public static ProntuarioRepresentation.Detalhes from(Prontuario prontuario) {
-            return ProntuarioRepresentation.Detalhes.builder()
+        public static Detalhes from(Prontuario prontuario) {
+            return Detalhes.builder()
                     .id(prontuario.getId())
                     .atendimento(prontuario.getAtendimento())
                     .consideracoes(prontuario.getConsideracoes())

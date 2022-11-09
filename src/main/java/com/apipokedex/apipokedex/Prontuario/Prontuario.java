@@ -23,7 +23,7 @@ public class Prontuario {
     @Column(name = "id_prontuario")
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_atendimento", referencedColumnName = "id")
+    @JoinColumn(name = "id_atendimento")
     private Atendimento atendimento;
 
     @Column(name = "consideracoes")
