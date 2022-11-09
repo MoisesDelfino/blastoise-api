@@ -41,17 +41,26 @@ public interface TreinadorRepresentation {
         private Date nascimento;
         private Genero genero;
         private Status status;
-        private List<Pokemon> pokemonList;
+        private List<PokemonRepresentation.Padrao> pokemons;
 
         public static Detalhes from(Treinador treinador) {
-            return Detalhes.builder()
+            return Objects.isNull(treinador.getPokemonList()) || treinador.getPokemonList().isEmpty() ?
+                    Detalhes.builder()
                             .id(treinador.getId())
                             .nome(treinador.getNome())
                             .classificacao(treinador.getClassificacao())
                             .genero(treinador.getGenero())
                             .status(treinador.getStatus())
                             .nascimento(treinador.getNascimento())
-                            .pokemonList(treinador.getPokemonList())
+                            .build() :
+                    Detalhes.builder()
+                            .id(treinador.getId())
+                            .nome(treinador.getNome())
+                            .genero(treinador.getGenero())
+                            .status(treinador.getStatus())
+                            .classificacao(treinador.getClassificacao())
+                            .nascimento(treinador.getNascimento())
+                            .pokemons(PokemonRepresentation.Padrao.from(treinador.getPokemonList()))
                             .build();
         }
     }

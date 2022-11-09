@@ -27,8 +27,8 @@ public class TipoPokemon {
     private String nome;
 
 //    (mappedBy="tiposPokemonList")
-    @ManyToMany
-    private List<TipoPokemon> pokemonList = new ArrayList<>();
+//    @ManyToMany
+//    private List<TipoPokemon> pokemonList = new ArrayList<>();
 
 
 }
