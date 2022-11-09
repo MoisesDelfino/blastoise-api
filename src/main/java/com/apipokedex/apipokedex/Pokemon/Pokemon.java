@@ -48,7 +48,6 @@ public class Pokemon {
     @ManyToMany
     private List<TipoPokemon> tiposPokemonList = new ArrayList<>();
 
-
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;
