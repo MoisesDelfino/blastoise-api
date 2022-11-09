@@ -52,7 +52,7 @@ public interface AtendimentoRepresentation {
         private Integer status;
 
 
-        private static AtendimentoRepresentation.Lista from(List<Atendimento> atendimento) {
+        private static AtendimentoRepresentation.Lista from(Atendimento atendimento) {
             return Lista.builder()
                             .id(atendimento.getId())
                             .urgencia(atendimento.getUrgencia())

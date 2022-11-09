@@ -1,5 +1,6 @@
 package com.apipokedex.apipokedex.Treinador;
 
+import com.apipokedex.apipokedex.Pokemon.Pokemon;
 import com.apipokedex.apipokedex.Pokemon.PokemonRepresentation;
 import com.apipokedex.apipokedex.utils.Classificacao;
 import com.apipokedex.apipokedex.utils.Genero;
@@ -40,6 +41,7 @@ public interface TreinadorRepresentation {
         private Date nascimento;
         private Genero genero;
         private Status status;
+        private List<Pokemon> pokemonList;
 
         public static Detalhes from(Treinador treinador) {
             return Detalhes.builder()
@@ -49,6 +51,7 @@ public interface TreinadorRepresentation {
                             .genero(treinador.getGenero())
                             .status(treinador.getStatus())
                             .nascimento(treinador.getNascimento())
+                            .pokemonList(treinador.getPokemonList())
                             .build();
         }
     }
