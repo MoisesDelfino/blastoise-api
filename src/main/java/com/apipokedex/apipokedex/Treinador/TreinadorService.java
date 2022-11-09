@@ -67,6 +67,7 @@ public class TreinadorService {
     }
 
     private Treinador getTreinador(Long idTreinador) {
+
         Optional<Treinador> treinadorAtual =
                 this.treinadorRepository.findById(idTreinador);
 

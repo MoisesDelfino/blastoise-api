@@ -46,9 +46,6 @@ public class Pokemon {
     private Genero genero;
 
     @ManyToMany
-//    @JoinTable(name = "pokemons_tipos",
-//            joinColumns = @JoinColumn(name = "pokemon_fk"),
-//            inverseJoinColumns =  @JoinColumn(name = "tipo_pokemon_fk"))
     private List<TipoPokemon> tiposPokemonList = new ArrayList<>();
 
 
@@ -58,10 +55,5 @@ public class Pokemon {
 
     @ManyToOne
     private Treinador treinador;
-
-//    public void addTipo(TipoPokemon tipoPokemon) {
-//        this.tiposPokemonList.add(tipoPokemon);
-//        tipoPokemon.getPokemonList().add(this);
-//    }
 
 }
