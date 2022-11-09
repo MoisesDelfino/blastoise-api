@@ -89,6 +89,26 @@ public class PokemonService {
         }
     }
 
+
+    public Pokemon buscarDetalhesPokemon(
+            Long idTreinador,
+            Long idPokemon
+            )
+        {
+
+        Pokemon pokemon = this.buscarUmPokemon(idPokemon);
+
+        Long idTreinadorPokemonCorreto = pokemon.getTreinador().getId();
+
+        if (idTreinadorPokemonCorreto != idTreinador) {
+            throw new NotfoundException("Esse pokemon não pertence ao treinador com id: " + idTreinador);
+        }
+
+
+        return pokemon;
+
+    }
+
     public Pokemon atualizar(
             TreinadorService treinadorService,
             Long idTreinador,

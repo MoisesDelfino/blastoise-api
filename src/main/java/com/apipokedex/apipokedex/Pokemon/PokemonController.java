@@ -30,6 +30,25 @@ public class PokemonController {
 
     }
 
+    @GetMapping("/{idPokemon}")
+    public ResponseEntity<PokemonRepresentation.Detalhes> buscarUmPokemon(
+            @PathVariable Long idTreinador,
+            @PathVariable Long idPokemon
+            ) {
+
+        Pokemon pokemonBuscado =
+                this.pokemonService.buscarDetalhesPokemon(idTreinador, idPokemon);
+
+        PokemonRepresentation.Detalhes detalhes =
+                PokemonRepresentation.Detalhes
+                        .from(pokemonBuscado);
+
+        return ResponseEntity
+                .ok(detalhes);
+
+    }
+
+
     @PutMapping("/{idPokemon}")
     public ResponseEntity<PokemonRepresentation.Detalhes> atualizarPokemon(
             @PathVariable Long idTreinador,
