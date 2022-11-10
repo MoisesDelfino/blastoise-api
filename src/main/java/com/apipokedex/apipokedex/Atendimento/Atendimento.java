@@ -30,12 +30,12 @@ public class Atendimento {
     @Column(name = "status")
     private Status status;
 
-    @Column(name = "sintoma")
-    private String sintoma;
-
     @Column(name = "dataHoraInicio")
     private Date dataHoraInicio;
 
     @OneToOne(mappedBy = "atendimento")
     private Prontuario prontuario;
+
+    @Column(name = "sintomas")
+    private String sintomas;
 }
