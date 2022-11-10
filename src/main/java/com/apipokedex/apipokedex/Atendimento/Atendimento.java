@@ -30,6 +30,7 @@ public class Atendimento {
     @Column(name = "status")
     private Status status;
 
+<<<<<<< HEAD
     @Column(name = "sintoma")
     private String sintoma;
 
@@ -38,4 +39,8 @@ public class Atendimento {
 
     @OneToOne(mappedBy = "atendimento")
     private Prontuario prontuario;
+=======
+    @Column(name = "sintomas")
+    private String sintomas;
+>>>>>>> 923aa09e061b3bedf36dafea87e55488ae1d03bb
 }

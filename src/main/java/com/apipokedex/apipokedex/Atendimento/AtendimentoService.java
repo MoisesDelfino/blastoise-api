@@ -28,12 +28,18 @@ public class AtendimentoService {
             throw new NullException("A urgência não pode ser vazia");
         }
 
+        if(criar.getSintomas().isEmpty()){
+            log.error(criar.toString());
+            throw new NullException("Sintomas não pode ser vazia");
+        }
+
         Pokemon pokemon = pokemonService.buscarUmPokemon(idPokemon);
 
         Atendimento atendimentoCriado = this.atendimentoRepository.save(Atendimento.builder()
                 .pokemon(pokemon)
                 .urgencia(criar.getUrgencia())
                 .status(Status.A)
+                .sintomas(criar.getSintomas())
                 .build());
 
 
@@ -80,9 +86,12 @@ public class AtendimentoService {
             throw new NullException("A urgência não pode ser vazio");
         }
 
-        Atendimento atendimento = this.buscarUmAtendimento(idAtendimento);
+        if(atualizar.getSintomas().isEmpty()){
+            log.error(atualizar.toString());
+            throw new NullException("Sintomas não pode ser vazio");
+        }
 
-        /*Long idPokemonAtendimentoCorreto = atendimento.getPokemon().getId();*/
+        Atendimento atendimento = this.buscarUmAtendimento(idAtendimento);
 
 
         Atendimento atendimentoParaAtualizar = Atendimento.builder()
@@ -90,6 +99,7 @@ public class AtendimentoService {
                 .urgencia(atualizar.getUrgencia())
                 .status(Status.A)
                 .pokemon(atendimento.getPokemon())
+                .sintomas(atendimento.getSintomas())
                 .build();
 
         return this.atendimentoRepository.save(atendimentoParaAtualizar);
@@ -107,6 +117,7 @@ public class AtendimentoService {
                 .pokemon(atendimento.getPokemon())
                 .urgencia(atendimento.getUrgencia())
                 .status(Status.D)
+                .sintomas(atendimento.getSintomas())
                 .build());
 
     }

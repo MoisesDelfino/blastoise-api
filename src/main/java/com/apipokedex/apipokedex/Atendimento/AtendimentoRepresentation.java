@@ -24,6 +24,10 @@ public interface AtendimentoRepresentation {
 
         @NotNull(message = "O campo não pode ser vazio")
         private Integer urgencia;
+
+        @NotNull
+        @NotEmpty(message = "O campo não pode ser vazio")
+        private String sintomas;
     }
 
     @Data
@@ -32,6 +36,7 @@ public interface AtendimentoRepresentation {
         private Long id;
         private Integer urgencia;
         private Status status;
+        private String sintomas;
 
 
         public static Detalhes from(Atendimento atendimento) {
@@ -39,6 +44,7 @@ public interface AtendimentoRepresentation {
                     .id(atendimento.getId())
                     .urgencia(atendimento.getUrgencia())
                     .status(atendimento.getStatus())
+                    .sintomas(atendimento.getSintomas())
                     .build();
         }
     }
@@ -50,12 +56,14 @@ public interface AtendimentoRepresentation {
         private PokemonRepresentation.Padrao pokemon;
         private Integer urgencia;
         private Integer status;
+        private String sintomas;
 
 
         private static AtendimentoRepresentation.Lista from(Atendimento atendimento) {
             return Lista.builder()
                             .id(atendimento.getId())
                             .urgencia(atendimento.getUrgencia())
+                            .sintomas(atendimento.getSintomas())
                             .build();
         }
 
