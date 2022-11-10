@@ -28,16 +28,6 @@ public class PokemonService {
             Long idTreinador,
             PokemonRepresentation.CriarOuAtualizar criar) {
 
-        if(Objects.isNull(criar.getNome())){
-            log.error(criar.toString());
-            throw new NullException("O nome não pode ser nulo");
-        }
-
-        if(criar.getNome().isEmpty()){
-            log.error(criar.toString());
-            throw new NullException("O nome não pode ser vazio");
-        }
-
         List<TipoPokemon> pokemonList = new ArrayList<>();
 
         criar.getTiposPokemonList().stream().forEach(id -> {

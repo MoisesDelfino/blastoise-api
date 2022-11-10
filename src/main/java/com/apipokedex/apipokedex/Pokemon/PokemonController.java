@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("api/treinador/{idTreinador}/pokemon")
 @CrossOrigin("*")
@@ -18,7 +20,7 @@ public class PokemonController {
     @PostMapping("/")
     public ResponseEntity<PokemonRepresentation.Detalhes> createPokemon(
             @PathVariable Long idTreinador,
-            @RequestBody PokemonRepresentation.CriarOuAtualizar criar) {
+            @RequestBody @Valid PokemonRepresentation.CriarOuAtualizar criar) {
 
 
         Pokemon pokemon = this.pokemonService.criarPokemon(treinadorService, idTreinador, criar);
