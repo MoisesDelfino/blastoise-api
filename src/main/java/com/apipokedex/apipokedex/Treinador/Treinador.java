@@ -10,8 +10,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Where;
 
-
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +29,8 @@ public class Treinador {
     private Long id;
 
     @Column(name = "nome")
+    @NotNull(message = "O campo nome não pode ser nulo - cod1")
+    @NotEmpty(message = "O campo nome não pode ser vazio - cod1")
     private String nome;
 
     @Column(name = "classificacao")

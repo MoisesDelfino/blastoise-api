@@ -10,6 +10,8 @@ import com.apipokedex.apipokedex.utils.Status;
 import lombok.*;
 import javax.persistence.*;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 
 
@@ -27,18 +29,24 @@ public class Pokemon {
     private Long id;
 
     @Column(name = "nome")
+    @NotNull(message = "O campo nome não pode ser nulo - cod1")
+    @NotEmpty(message = "O campo nome não pode ser vazio - cod1")
     private String nome;
 
     @Column(name = "saude")
+    @NotNull(message = "O campo saude não pode ser nulo - cod1")
     private Long saude;
 
     @Column(name = "ataque")
+    @NotNull(message = "O campo ataque não pode ser nulo - cod1")
     private Long ataque;
 
     @Column(name = "defesa")
+    @NotNull(message = "O campo defesa não pode ser nulo - cod1")
     private Long defesa;
 
     @Column(name = "velocidade")
+    @NotNull(message = "O campo velocidade não pode ser nulo - cod1")
     private Long velocidade;
 
     @Column(name = "genero")
@@ -46,6 +54,7 @@ public class Pokemon {
     private Genero genero;
 
     @ManyToMany
+    @NotNull(message = "O campo tiposPokemonList não pode ser nulo - cod1")
     private List<TipoPokemon> tiposPokemonList = new ArrayList<>();
 
     @Column(name = "status")

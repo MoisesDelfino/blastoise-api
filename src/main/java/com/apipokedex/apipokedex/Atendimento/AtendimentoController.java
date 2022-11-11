@@ -11,8 +11,8 @@ import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("api/atendimento")
@@ -26,7 +26,7 @@ public class AtendimentoController {
     @PostMapping("/{idPokemon}")
     public ResponseEntity<AtendimentoRepresentation.Detalhes> createAtendimento(
             @PathVariable Long idPokemon,
-            @RequestBody AtendimentoRepresentation.CriarOuAtualizar criar) {
+            @RequestBody @Valid AtendimentoRepresentation.CriarOuAtualizar criar) {
 
 
         Atendimento atendimento = this.atendimentoService.criarAtendimento(pokemonService, idPokemon, criar);

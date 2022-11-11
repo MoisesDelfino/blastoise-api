@@ -23,15 +23,6 @@ public class AtendimentoService {
                                     Long idPokemon,
                                     AtendimentoRepresentation.CriarOuAtualizar criar) {
 
-        if(criar.getUrgencia().toString().isEmpty()){
-            log.error(criar.toString());
-            throw new NullException("A urgência não pode ser vazia");
-        }
-
-        if(criar.getSintomas().isEmpty()){
-            log.error(criar.toString());
-            throw new NullException("Sintomas não pode ser vazia");
-        }
 
         Pokemon pokemon = pokemonService.buscarUmPokemon(idPokemon);
 

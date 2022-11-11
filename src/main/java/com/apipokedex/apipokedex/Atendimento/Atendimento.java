@@ -6,6 +6,8 @@ import com.apipokedex.apipokedex.utils.Status;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -25,22 +27,20 @@ public class Atendimento {
     private Pokemon pokemon;
 
     @Column(name = "urgencia")
+    @NotNull(message = "O campo urgencia não pode ser nulo - cod1")
     private Integer urgencia;
 
     @Column(name = "status")
     private Status status;
 
-<<<<<<< HEAD
-    @Column(name = "sintoma")
-    private String sintoma;
-
     @Column(name = "dataHoraInicio")
     private Date dataHoraInicio;
 
-    @OneToOne(mappedBy = "atendimento")
+    @OneToOne
     private Prontuario prontuario;
-=======
+
     @Column(name = "sintomas")
+    @NotNull(message = "O campo sintomas não pode ser nulo - cod1")
+    @NotEmpty(message = "O campo sintomas não pode ser vazio - cod1")
     private String sintomas;
->>>>>>> 923aa09e061b3bedf36dafea87e55488ae1d03bb
 }

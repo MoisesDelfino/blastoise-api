@@ -1,21 +1,16 @@
 package com.apipokedex.apipokedex.Pokemon;
-
-import com.apipokedex.apipokedex.TipoPokemon.TipoPokemon;
 import com.apipokedex.apipokedex.TipoPokemon.TipoPokemonRepresentation;
-import com.apipokedex.apipokedex.Treinador.Treinador;
-import com.apipokedex.apipokedex.Treinador.TreinadorRepresentation;
 import com.apipokedex.apipokedex.utils.Genero;
 import com.apipokedex.apipokedex.utils.Status;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public interface PokemonRepresentation {
 
@@ -25,25 +20,20 @@ public interface PokemonRepresentation {
     @NoArgsConstructor
     class CriarOuAtualizar {
 
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
+        @NotNull(message = "O campo nome não pode ser nulo - cod2")
+        @NotEmpty(message = "O campo nome não pode ser vazio - cod2")
         private String nome;
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
+        @NotNull(message = "O campo saude não pode ser nulo - cod2")
         private Long saude;
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
+        @NotNull(message = "O campo ataque não pode ser nulo - cod2")
         private Long ataque;
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
+        @NotNull(message = "O campo defesa não pode ser nulo - cod2")
         private Long defesa;
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
+        @NotNull(message = "O campo velocidade não pode ser nulo - cod2")
         private Long velocidade;
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
-        private Genero genero;
 
+        private Genero genero;
+        @NotNull(message = "O campo tiposPokemonList não pode ser nulo - cod2")
         private List<Long> tiposPokemonList;
 
     }
