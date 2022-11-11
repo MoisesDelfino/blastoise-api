@@ -20,14 +20,12 @@ public interface AtendimentoRepresentation {
     @AllArgsConstructor
     @NoArgsConstructor
     class CriarOuAtualizar {
-        @NotNull(message = "O campo não pode ser vazio")
-        private Pokemon pokemon;
 
-        @NotNull(message = "O campo não pode ser vazio")
+        @NotNull(message = "O campo urgencia não pode ser nulo - cod2")
         private Integer urgencia;
 
-        @NotNull
-        @NotEmpty(message = "O campo não pode ser vazio")
+        @NotNull(message = "O campo sintomas não pode ser nulo - cod2")
+        @NotEmpty(message = "O campo sintomas não pode ser vazio - cod2")
         private String sintomas;
     }
 

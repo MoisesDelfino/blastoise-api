@@ -1,6 +1,7 @@
 package com.apipokedex.apipokedex.Prontuario;
 
 import com.apipokedex.apipokedex.Atendimento.Atendimento;
+import com.apipokedex.apipokedex.Atendimento.AtendimentoRepresentation;
 import com.apipokedex.apipokedex.Treinador.Treinador;
 import com.apipokedex.apipokedex.Treinador.TreinadorRepresentation;
 import com.apipokedex.apipokedex.utils.Classificacao;
@@ -21,9 +22,9 @@ public interface ProntuarioRepresentation {
     @AllArgsConstructor
     @NoArgsConstructor
     class CriarOuAtualizar {
-        @NotNull(message = "O campo atendimento não pode ser nulo")
-        @NotEmpty
-        private Atendimento atendimento;
+
+        @NotEmpty(message = "O campo consideracoes não pode ser vazio - cod2")
+        @NotNull(message = "O campo consideracoes não pode ser nulo - cod2")
         private String consideracoes;
     }
 
@@ -31,13 +32,13 @@ public interface ProntuarioRepresentation {
     @Builder
     class Detalhes{
         private Long id;
-        private Atendimento atendimento;
+        private AtendimentoRepresentation.Detalhes atendimento;
         private String consideracoes;
 
         public static Detalhes from(Prontuario prontuario) {
             return Detalhes.builder()
                     .id(prontuario.getId())
-                    .atendimento(prontuario.getAtendimento())
+                    .atendimento(AtendimentoRepresentation.Detalhes.from(prontuario.getAtendimento()))
                     .consideracoes(prontuario.getConsideracoes())
                     .build();
         }

@@ -9,8 +9,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 
 @Data
 @AllArgsConstructor
@@ -22,11 +23,13 @@ public class Prontuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_prontuario")
     private Long id;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_atendimento")
+
+    @OneToOne
     private Atendimento atendimento;
 
     @Column(name = "consideracoes")
+    @NotEmpty(message = "O campo consideracoes não pode ser vazio - cod1")
+    @NotNull(message = "O campo consideracoes não pode ser nulo - cod1")
     private String consideracoes;
 
 }
